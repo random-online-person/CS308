@@ -8,14 +8,14 @@ positive number. */
 #include <string.h>
 #include <ctype.h>
 
+
 bool Is_valid_num(char str[]) {
 	for (int i = 0; i < strlen(str) ; i++)
 	if (!isdigit(str[i])){
-		return false;
-	}
-	int temp = atoi(str);
-	if(temp < 0){
-		return false;
+		if(str[i] == '-' && i == 0){
+		} else{
+			return false;
+		}
 	}
     return true;
 }
@@ -33,7 +33,12 @@ int main(int argc, char* argv[]) {
 	if(Is_valid_num(argv[1])){
 		//else print the sqrt of the input number
 		int input = atoi(argv[1]);
-		printf("Sqrt of %d is %f\n",input,sqrt(input));
+		if(input < 0){
+			input = -input;
+			printf("Sqrt of %d is %fi\n",input,sqrt(input));
+		} else {
+			printf("Sqrt of %d is %f\n",input,sqrt(input));
+		}
 	} else{
 		printf("Enter a valid number \n\n");
 	}
