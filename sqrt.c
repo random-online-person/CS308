@@ -19,6 +19,11 @@ int main(int argc, char* argv[]) {
 	//else print the sqrt of the input number
 	int input = atoi(argv[1]);
 	printf("Sqrt of %d is %f\n",input,sqrt(input));
+
+
+	//step 1.18
+	printf("End of program. Exiting. \n");
+
 	return(0);
 
 } // end main
